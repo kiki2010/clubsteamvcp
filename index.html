@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club STEAM VCP - Proyectos</title>
+    
+    <meta name="description" content="Proyectos, Robots, Juegos y sitios web hechos por miembros del Club STEAM VCP.">
+    <link rel="icon" type="image/jpeg" href="assets/base/logo.jpeg">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-row">
+            <img src="assets/base/logo.jpeg" alt="logo club" class="logo">
+            <div class="header-text">
+                <h1>Club STEAM VCP</h1>
+                <p class="subtitle">Proyectos, Robots, Juegos y Sitios Web hechos por miembros del club STEAM VCP.</p>
+            </div>
+        </div>
+        <div class="trace-line" aria-hidden="true">
+            <span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span>
+        </div>
+    </header>
+
+    <nav class="filters" id="filters" aria-label="Filtrar por categoría">
+        <!--Botones de las categorías encontradas-->
+    </nav>
+
+    <main>
+        <section id="feed" class="feed" aria-live="polite">
+            <!--Tarjetas de los proyectos-->
+        </section>
+
+        <p id="empty-state" class="empty-state" hidden>
+            Todavía no hay proyectos en esta categoría <br>
+        </p>
+
+        <p id="load-error" class="empty-state" hidden>
+            No se pudo cargar el listado de proyectos <br>
+        </p>
+    </main>
+
+    <footer>
+        <h3>Club Steam VCP</h3>
+        <p>Creado por los propios <a href="miembros/index.html">miembros</a>.</p>
+    </footer>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
