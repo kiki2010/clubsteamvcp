@@ -3,7 +3,7 @@
     "autor": "Club STEAM VCP",
     "categoria": "robots",
     "fecha": "2026-06-15",
-    "miniatura": "assets/default-avatar.svg",
-    "avatar": "assets/default-avatar.svg",
-    "enlace": ""
+    "miniatura": "steamy_thumb.jpeg",
+    "avatar": "../../assets/base/logo.jpeg",
+    "enlace": "projects/steamy/index.html"
 }

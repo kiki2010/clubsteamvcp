@@ -1,0 +1,315 @@
+<!--
+Proyecto: Steamy I
+última modificación de este archivo: 20/07
+Por Chiara Catalini | Orientadora del Club
+
+Esta página también sirve de base para otros proyectos:
+está armada igual que projects/_template/index.html.
+Los bloques marcados "Completar" son los que faltan llenar.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steamy I || Club STEAM VCP</title>
+    <meta name="description" content="Documentación del proyecto Steamy I, del Club STEAM VCP.">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../proyecto.css">
+</head>
+<body>
+
+<a class="back-link" href="../../index.html">&larr; Volver al feed</a>
+
+<header class="project-hero">
+    <!-- Foto de portada: reemplazá el src de abajo por el archivo
+         real (por ejemplo foto-portada.jpg) subido a esta misma
+         carpeta. Se recomienda una imagen apaisada (más ancha que
+         alta). Mientras no la subas, se ve una imagen genérica. -->
+    <div class="hero-photo">
+        <img src="steamy_thumb.jpeg" alt="Foto de Steamy I">
+    </div>
+
+    <div class="badge-row">
+        <span class="badge designator">R-01</span>
+        <span class="badge category">Robots</span>
+    </div>
+
+    <h1>Steamy I</h1>
+
+    <!-- PREGUNTA 1: resumí el proyecto en una sola frase -->
+    <p class="tagline">Steamy I es un robot Bluetooth con sensores infrarojos (seguidor de líneas) y ultrasónicos (detección de obstaculos).</p>
+
+    <div class="hero-meta">
+        <img src="../../assets/base/logo.jpeg" alt="">
+        <div class="who">
+            <strong>Club STEAM VCP</strong>
+            <span>21/07/2026</span>
+        </div>
+    </div>
+</header>
+
+<main class="project-content">
+
+    <section>
+        <span class="section-eyebrow">01 · La idea</span>
+        <h2>¿Qué problema resuelve o qué te dio ganas de hacerlo?</h2>
+        <p class="">La idea de Steamy I es aprender sobre el control de actuadores y la lectura de sensores usando Arduino.</p>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">02 · Funcionamiento</span>
+        <h2>¿Cómo funciona?</h2>
+        <p class="">Steamy se conecta mediante BT al celular usando el módulo HC-05 y una app creada en app inventor.</p>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">03 · Lista de materiales</span>
+        <h2>¿Qué usaste para construirlo?</h2>
+        <table class="materials-table">
+            <thead>
+                <tr>
+                    <th>Material / herramienta</th>
+                    <th>Cantidad</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Arduino Uno</td>
+                    <td>1</td>
+                    <td>Microcontrolador</td>
+                </tr>
+                <tr>
+                    <td>Puente H</td>
+                    <td>1</td>
+                    <td>L9110S</td>
+                </tr>
+                <tr>
+                    <td>Motores Reductores</td>
+                    <td>2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Powerbank</td>
+                    <td>1</td>
+                    <td>Alimentación del circuito</td>
+                </tr>
+                <tr>
+                    <td>Protoboard</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Cables Jumpers</td>
+                    <td>—</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Base o "chasis"</td>
+                    <td>1</td>
+                    <td>Estructura del robot</td>
+                </tr>
+                <tr>
+                    <td>HC-05</td>
+                    <td>1</td>
+                    <td>Módulo Bluetooth</td>
+                </tr>
+                <tr>
+                    <td>Sensor Últrasonico</td>
+                    <td>1</td>
+                    <td>Detección de obstaculos.</td>
+                </tr>
+                <tr>
+                    <td>Sensores Infrarojos</td>
+                    <td>2</td>
+                    <td>Para seguir líneas</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">04 · Evidencia</span>
+        <h2>Fotos, diagramas o capturas</h2>
+        <div class="gallery">
+            <figure>
+                <div class="thumb-wrap"><img src="steamyIbot.jpeg" alt="" loading="lazy"></div>
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <div class="thumb-wrap"><img src="steamyIbot2.jpeg" alt="" loading="lazy"></div>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">05 · Instructivo</span>
+        <h2>Cómo replicarlo, paso a paso</h2>
+        <ol class="steps">
+            <li>
+                <h3>Conseguí los materiales y revisá el pinout</h3>
+                <p>Juntá lo de la lista de materiales de arriba. Antes de conectar nada, revisá el pinout de tu Arduino para verificar que los pines que vas a usar no estén ocupados por otro proceso — así evitás dañar el microcontrolador o encontrar problemas sin saber bien qué los causa.</p>
+            </li>
+            <li>
+                <h3>Hacé las conexiones</h3>
+                <p>Conectá los 4 pines de control del puente H a los pines 5, 6, 9 y 10 del Arduino (dos por cada motor). Conectá el RX del módulo HC-05 al pin 8 y el TX al pin 7. Alimentá el conjunto con la powerbank.</p>
+            </li>
+            <li>
+                <h3>Cargá el programa en el Arduino</h3>
+                <p>Instalá la librería <code>SoftwareSerial.h</code> desde el gestor de librerías del IDE de Arduino, copiá el código de la sección "Código y archivos" de abajo y subilo a la placa. Si el puerto no aparece en la lista, probablemente falten los drivers USB-Serial (por ejemplo el CH340): <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">instalalos acá</a>.</p>
+            </li>
+            <li>
+                <h3>Controlalo desde el celular</h3>
+                <p>Conectate por Bluetooth al HC-05 desde la app hecha en App Inventor y mandale comandos: <code>F</code> adelante, <code>B</code> atrás, <code>L</code> izquierda, <code>R</code> derecha, <code>S</code> detener, y <code>V</code> seguido de un número de 0 a 255 para regular la velocidad.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">06 · Código y archivos</span>
+        <h2>¿Dónde está el código o los archivos del proyecto?</h2>
+        <ul class="resource-links">
+            <li><a href="https://docs.google.com/document/d/1hiHm9wqZEXQ-DILTaQ02pxZamUTUHwvBk6soiBpxgWE/edit?usp=sharing" class="">Documentación Steamy I</a></li>
+        </ul>
+        <p></p>
+        <pre class="code-panel">#include &lt;SoftwareSerial.h&gt;
+
+#define rxPin 7
+#define txPin 8
+
+// Motors pins (PWM)
+int m1a = 5;
+int m2a = 6;
+int m1b = 9;
+int m2b = 10;
+
+// Speed
+int speed = 100;
+
+SoftwareSerial bt(rxPin, txPin);
+
+void setup() {
+  // hc-05
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+
+  // motors
+  pinMode(m1a, OUTPUT);
+  pinMode(m2a, OUTPUT);
+  pinMode(m1b, OUTPUT);
+  pinMode(m2b, OUTPUT);
+
+  // Serial and Bluetooth begin
+  Serial.begin(9600);
+  bt.begin(9600);
+}
+
+void loop() {
+  if (bt.available() &gt; 0) {
+    char cmd = bt.read();
+    Serial.println(cmd);
+
+    if (cmd == '\n' || cmd == '\r') {
+      return;
+    }
+
+    // Get speed from app
+    if (cmd == 'V') {
+      speed = bt.parseInt();
+      speed = constrain(speed, 0, 255);
+    }
+
+    if (cmd == 'F') {
+      move();
+    } else if (cmd == 'B') {
+      back();
+    } else if (cmd == 'L') {
+      left();
+    } else if (cmd == 'R') {
+      right();
+    } else if (cmd == 'S') {
+      stop();
+    }
+  }
+}
+
+void move() {
+  analogWrite(m1a, speed);
+  analogWrite(m2a, 0);
+  analogWrite(m1b, speed);
+  analogWrite(m2b, 0);
+}
+
+void back() {
+  analogWrite(m1a, 0);
+  analogWrite(m2a, speed);
+  analogWrite(m1b, 0);
+  analogWrite(m2b, speed);
+}
+
+void stop() {
+  analogWrite(m1a, 0);
+  analogWrite(m2a, 0);
+  analogWrite(m1b, 0);
+  analogWrite(m2b, 0);
+}
+
+void left() {
+  analogWrite(m1a, speed);
+  analogWrite(m2a, 0);
+  analogWrite(m1b, 0);
+  analogWrite(m2b, 0);
+}
+
+void right() {
+  analogWrite(m1a, 0);
+  analogWrite(m2a, 0);
+  analogWrite(m1b, speed);
+  analogWrite(m2b, 0);
+}</pre>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">07 · Aprendizajes</span>
+        <h2>Desafíos y qué aprendiste</h2>
+        <div class="callout">
+            <p>Un error que suele aparecer al momento de cargar el programa es que el Arduino no aparezca en la lista de puertos. Generalmente esto ocurre por la ausencia de los drivers USB-Serial (por ejemplo, el CH340). Si te pasa, seguí <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">este tutorial</a> para instalarlos.</p>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">08 · Próximos pasos</span>
+        <h2>Posibles mejoras</h2>
+        <ul class="plain">
+            <li class="fill">Completar: una mejora posible</li>
+            <li class="fill">Completar: otra mejora posible</li>
+        </ul>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">09 · Créditos</span>
+        <h2>Agradecimientos</h2>
+        <p class="fill">Completar: a quién querés agradecer o qué fuentes usaste de referencia.</p>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">10 · Video</span>
+        <h2>¿Tenés un video mostrando el proyecto en acción?</h2>
+        <!-- Pegá el link completo de YouTube en data-youtube, por
+             ejemplo: data-youtube="https://youtu.be/dQw4w9WgXcQ"
+             Si lo dejás vacío, se muestra un aviso en vez de romperse. -->
+        <div class="video-embed" data-youtube=""></div>
+    </section>
+
+</main>
+
+<script src="../../proyecto.js" defer></script>
+</body>
+</html>

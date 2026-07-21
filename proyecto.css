@@ -1,0 +1,390 @@
+/* estilos de la página individual de cada proyecto.
+   se usa junto a style.css (de ahí toma las variables de color,
+   radios, sombras y tipografía) */
+
+/*volver al feed*/
+
+.back-link{
+  display:inline-block;
+  margin:24px 24px 0;
+  color:var(--primary);
+  font-weight:600;
+}
+
+.back-link:hover{
+  text-decoration:underline;
+}
+
+/*foto de portada*/
+
+.hero-photo{
+  aspect-ratio:21/9;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/*hero del proyecto*/
+
+.project-hero{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:24px 24px 0;
+}
+
+.badge-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.badge{
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:600;
+}
+
+.badge.designator{
+  background:var(--primary);
+  color:white;
+}
+
+.badge.category{
+  background:var(--secondary);
+  color:var(--text);
+}
+
+.project-hero h1{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+.tagline{
+  color:var(--text-light);
+  max-width:60ch;
+  margin-bottom:20px;
+}
+
+.hero-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.hero-meta img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+}
+
+.hero-meta .who strong{
+  display:block;
+  font-size:.95rem;
+}
+
+.hero-meta .who span{
+  font-size:.85rem;
+  color:var(--text-light);
+}
+
+/*contenido*/
+
+.project-content{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:0 24px 60px;
+}
+
+.project-content section{
+  padding:32px 0;
+  border-top:1px solid var(--border);
+}
+
+.project-content section:first-child{
+  border-top:none;
+  padding-top:8px;
+}
+
+.section-eyebrow{
+  display:block;
+  color:var(--primary);
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:.03em;
+  margin-bottom:8px;
+}
+
+.project-content h2{
+  font-size:1.4rem;
+  margin-bottom:14px;
+}
+
+.project-content p{
+  max-width:70ch;
+  margin-bottom:14px;
+}
+
+/*caja para completar: marca en el navegador dónde falta escribir*/
+
+.fill{
+  display:block;
+  max-width:70ch;
+  padding:14px 16px;
+  border:2px dashed var(--border);
+  border-radius:var(--radius);
+  color:var(--text-light);
+  background:var(--background);
+}
+
+.fill::before{
+  content:"✏️ Completar: ";
+  display:block;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:4px;
+}
+
+/*tabla de materiales*/
+
+.materials-table{
+  width:100%;
+  max-width:70ch;
+  border-collapse:collapse;
+  background:var(--surface);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.materials-table th{
+  text-align:left;
+  font-size:.8rem;
+  text-transform:uppercase;
+  color:var(--text-light);
+  padding:10px 14px;
+  border-bottom:2px solid var(--border);
+}
+
+.materials-table td{
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+}
+
+/*galería*/
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:16px;
+}
+
+.gallery figure{
+  margin:0;
+}
+
+.gallery .thumb-wrap{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.gallery figcaption{
+  color:var(--text-light);
+  font-size:.85rem;
+  margin-top:6px;
+}
+
+/*pasos para replicar*/
+
+.steps{
+  list-style:none;
+  max-width:70ch;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  counter-reset:step;
+}
+
+.steps li{
+  display:flex;
+  gap:14px;
+  background:var(--surface);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px 18px;
+}
+
+.steps li::before{
+  content:counter(step);
+  counter-increment:step;
+  flex-shrink:0;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.steps h3{
+  font-size:1.05rem;
+  margin-bottom:4px;
+}
+
+/*código y enlaces*/
+
+.code-panel{
+  background:var(--text);
+  color:#fff;
+  font-family:monospace;
+  font-size:.85rem;
+  padding:16px 18px;
+  border-radius:var(--radius);
+  max-width:70ch;
+  overflow-x:auto;
+}
+
+.resource-links{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.resource-links a{
+  color:var(--primary);
+  font-weight:600;
+}
+
+.resource-links a:hover{
+  text-decoration:underline;
+}
+
+/*callout (desafíos)*/
+
+.callout{
+  max-width:70ch;
+  background:var(--secondary);
+  border-left:4px solid var(--primary);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:16px 18px;
+}
+
+.callout p:last-child{
+  margin-bottom:0;
+}
+
+/*lista simple (mejoras, créditos)*/
+
+.project-content ul.plain{
+  max-width:70ch;
+  padding-left:20px;
+}
+
+.project-content ul.plain li{
+  margin-bottom:6px;
+}
+
+/*video*/
+
+.video-embed{
+  position:relative;
+  aspect-ratio:16/9;
+  max-width:70ch;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--text);
+  box-shadow:var(--shadow);
+}
+
+.video-embed iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+.video-embed.is-empty{
+  aspect-ratio:auto;
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  color:var(--text-light);
+  background:var(--background);
+  border:2px dashed var(--border);
+  box-shadow:none;
+}
+
+.video-facade{
+  width:100%;
+  height:100%;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+
+.video-facade::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0) 55%);
+}
+
+.play-icon{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:var(--primary);
+  box-shadow:var(--shadow);
+  transition:.2s;
+}
+
+.play-icon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:55%;
+  transform:translate(-50%,-50%);
+  border-style:solid;
+  border-width:11px 0 11px 18px;
+  border-color:transparent transparent transparent #fff;
+}
+
+.video-facade:hover .play-icon{
+  transform:translate(-50%,-50%) scale(1.06);
+}
+
+/*responsive*/
+
+@media(max-width:600px){
+  .steps li{
+    flex-direction:column;
+  }
+  .hero-photo{
+    aspect-ratio:16/9;
+  }
+}
