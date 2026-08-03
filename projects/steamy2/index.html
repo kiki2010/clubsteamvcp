@@ -1,20 +1,20 @@
 <!--
-Proyecto: Steamy I
-última modificación de este archivo: 20/07
+Proyecto: Steamy II
+última modificación de este archivo: 03/08
 Por Chiara Catalini | Orientadora del Club
-
+ 
 Esta página también sirve de base para otros proyectos:
 está armada igual que projects/_template/index.html.
 Los bloques marcados "Completar" son los que faltan llenar.
 -->
-
+ 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steamy I || Club STEAM VCP</title>
-    <meta name="description" content="Documentación del proyecto Steamy I, del Club STEAM VCP.">
+    <title>Steamy II || Club STEAM VCP</title>
+    <meta name="description" content="Documentación del proyecto Steamy II, del Club STEAM VCP.">
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,28 +23,28 @@ Los bloques marcados "Completar" son los que faltan llenar.
     <link rel="stylesheet" href="../../proyecto.css">
 </head>
 <body>
-
+ 
 <a class="back-link" href="../../index.html">&larr; Volver al feed</a>
-
+ 
 <header class="project-hero">
     <!-- Foto de portada: reemplazá el src de abajo por el archivo
          real (por ejemplo foto-portada.jpg) subido a esta misma
          carpeta. Se recomienda una imagen apaisada (más ancha que
          alta). Mientras no la subas, se ve una imagen genérica. -->
     <div class="hero-photo">
-        <img src="steamy_thumb.jpeg" alt="Foto de Steamy I">
+        <img src="steamy2_thumb.jpeg" alt="Foto de Steamy II">
     </div>
-
+ 
     <div class="badge-row">
-        <span class="badge designator">R-01</span>
+        <span class="badge designator">R-02</span>
         <span class="badge category">Robots</span>
     </div>
-
-    <h1>Steamy I</h1>
-
+ 
+    <h1>Steamy II</h1>
+ 
     <!-- PREGUNTA 1: resumí el proyecto en una sola frase -->
-    <p class="tagline">Steamy I es un robot Bluetooth con sensores infrarojos (seguidor de líneas) y ultrasónicos (detección de obstaculos).</p>
-
+    <p class="tagline">Steamy II es el robot gemelo de Steamy I: mismo diseño con Bluetooth, sensores infrarojos (seguidor de líneas) y ultrasónicos (detección de obstaculos).</p>
+ 
     <div class="hero-meta">
         <img src="../../assets/base/logo.jpeg" alt="">
         <div class="who">
@@ -53,21 +53,21 @@ Los bloques marcados "Completar" son los que faltan llenar.
         </div>
     </div>
 </header>
-
+ 
 <main class="project-content">
-
+ 
     <section>
         <span class="section-eyebrow">01 · La idea</span>
         <h2>¿Qué problema resuelve o qué te dio ganas de hacerlo?</h2>
-        <p class="">La idea de Steamy I es aprender sobre el control de actuadores y la lectura de sensores usando Arduino.</p>
+        <p class="">Steamy II nació como el gemelo de Steamy I: se armó replicando el mismo circuito y programa para reforzar el aprendizaje sobre control de actuadores y lectura de sensores con Arduino, y para poder tener dos robots funcionando al mismo tiempo.</p>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">02 · Funcionamiento</span>
         <h2>¿Cómo funciona?</h2>
-        <p class="">Steamy se conecta mediante BT al celular usando el módulo HC-05 y una app creada en app inventor.</p>
+        <p class="">Igual que su gemelo, Steamy II se conecta mediante BT al celular usando el módulo HC-05 y una app creada en App Inventor. Al tener el mismo diseño que Steamy I, los dos robots pueden controlarse en simultáneo desde dos celulares distintos.</p>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">03 · Lista de materiales</span>
         <h2>¿Qué usaste para construirlo?</h2>
@@ -133,29 +133,29 @@ Los bloques marcados "Completar" son los que faltan llenar.
             </tbody>
         </table>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">04 · Evidencia</span>
         <h2>Fotos, diagramas o capturas</h2>
         <div class="gallery">
             <figure>
-                <div class="thumb-wrap"><img src="steamyIbot.jpeg" alt="" loading="lazy"></div>
+                <div class="thumb-wrap"><img src="steamyIIbot.jpeg" alt="" loading="lazy"></div>
                 <figcaption></figcaption>
             </figure>
             <figure>
-                <div class="thumb-wrap"><img src="steamyIbot2.jpeg" alt="" loading="lazy"></div>
+                <div class="thumb-wrap"><img src="steamyIIbot2.jpeg" alt="" loading="lazy"></div>
                 <figcaption></figcaption>
             </figure>
         </div>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">05 · Instructivo</span>
         <h2>Cómo replicarlo, paso a paso</h2>
         <ol class="steps">
             <li>
                 <h3>Conseguí los materiales y revisá el pinout</h3>
-                <p>Juntá lo de la lista de materiales de arriba. Antes de conectar nada, revisá el pinout de tu Arduino para verificar que los pines que vas a usar no estén ocupados por otro proceso — así evitás dañar el microcontrolador o encontrar problemas sin saber bien qué los causa.</p>
+                <p>Juntá lo de la lista de materiales de arriba (es la misma que la de Steamy I). Antes de conectar nada, revisá el pinout de tu Arduino para verificar que los pines que vas a usar no estén ocupados por otro proceso — así evitás dañar el microcontrolador o encontrar problemas sin saber bien qué los causa.</p>
             </li>
             <li>
                 <h3>Hacé las conexiones</h3>
@@ -163,69 +163,71 @@ Los bloques marcados "Completar" son los que faltan llenar.
             </li>
             <li>
                 <h3>Cargá el programa en el Arduino</h3>
-                <p>Instalá la librería <code>SoftwareSerial.h</code> desde el gestor de librerías del IDE de Arduino, copiá el código de la sección "Código y archivos" de abajo y subilo a la placa. Si el puerto no aparece en la lista, probablemente falten los drivers USB-Serial (por ejemplo el CH340): <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">instalalos acá</a>.</p>
+                <p>Instalá la librería <code>SoftwareSerial.h</code> desde el gestor de librerías del IDE de Arduino, copiá el código de la sección "Código y archivos" de abajo y subilo a la placa. Es el mismo programa que corre Steamy I. Si el puerto no aparece en la lista, probablemente falten los drivers USB-Serial (por ejemplo el CH340): <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">instalalos acá</a>.</p>
             </li>
             <li>
                 <h3>Controlalo desde el celular</h3>
-                <p>Conectate por Bluetooth al HC-05 desde la app hecha en App Inventor y mandale comandos: <code>F</code> adelante, <code>B</code> atrás, <code>L</code> izquierda, <code>R</code> derecha, <code>S</code> detener, y <code>V</code> seguido de un número de 0 a 255 para regular la velocidad.</p>
+                <p>Conectate por Bluetooth al HC-05 desde la app hecha en App Inventor y mandale comandos: <code>F</code> adelante, <code>B</code> atrás, <code>L</code> izquierda, <code>R</code> derecha, <code>S</code> detener, y <code>V</code> seguido de un número de 0 a 255 para regular la velocidad. Como Steamy I usa la misma app, podés tener los dos robots emparejados con celulares distintos y manejarlos al mismo tiempo.</p>
             </li>
         </ol>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">06 · Código y archivos</span>
         <h2>¿Dónde está el código o los archivos del proyecto?</h2>
+        <!-- Completar: pegar acá el link a la documentación / Google Doc de Steamy II
+             (por ejemplo, una copia del doc de Steamy I con los ajustes propios de este robot) -->
         <ul class="resource-links">
-            <li><a href="https://docs.google.com/document/d/1hiHm9wqZEXQ-DILTaQ02pxZamUTUHwvBk6soiBpxgWE/edit?usp=sharing" class="">Documentación Steamy I</a></li>
+            <li><a href="#" class="">Documentación Steamy II</a></li>
         </ul>
         <p></p>
         <pre class="code-panel">#include &lt;SoftwareSerial.h&gt;
-
+ 
 #define rxPin 7
 #define txPin 8
-
+ 
 // Motors pins (PWM)
 int m1a = 5;
 int m2a = 6;
 int m1b = 9;
 int m2b = 10;
-
+ 
 // Speed
 int speed = 100;
-
+ 
 SoftwareSerial bt(rxPin, txPin);
-
+ 
 void setup() {
   // hc-05
   pinMode(rxPin, INPUT);
   pinMode(txPin, OUTPUT);
-
+ 
   // motors
   pinMode(m1a, OUTPUT);
   pinMode(m2a, OUTPUT);
   pinMode(m1b, OUTPUT);
   pinMode(m2b, OUTPUT);
-
+ 
   // Serial and Bluetooth begin
   Serial.begin(9600);
   bt.begin(9600);
 }
-
+ 
 void loop() {
   if (bt.available() &gt; 0) {
     char cmd = bt.read();
     Serial.println(cmd);
-
+ 
     if (cmd == '\n' || cmd == '\r') {
       return;
     }
-
+ 
     // Get speed from app
     if (cmd == 'V') {
       speed = bt.parseInt();
       speed = constrain(speed, 0, 255);
     }
-
+ 
     if (cmd == 'F') {
       move();
     } else if (cmd == 'B') {
@@ -239,35 +241,35 @@ void loop() {
     }
   }
 }
-
+ 
 void move() {
   analogWrite(m1a, speed);
   analogWrite(m2a, 0);
   analogWrite(m1b, speed);
   analogWrite(m2b, 0);
 }
-
+ 
 void back() {
   analogWrite(m1a, 0);
   analogWrite(m2a, speed);
   analogWrite(m1b, 0);
   analogWrite(m2b, speed);
 }
-
+ 
 void stop() {
   analogWrite(m1a, 0);
   analogWrite(m2a, 0);
   analogWrite(m1b, 0);
   analogWrite(m2b, 0);
 }
-
+ 
 void left() {
   analogWrite(m1a, speed);
   analogWrite(m2a, 0);
   analogWrite(m1b, 0);
   analogWrite(m2b, 0);
 }
-
+ 
 void right() {
   analogWrite(m1a, 0);
   analogWrite(m2a, 0);
@@ -275,17 +277,17 @@ void right() {
   analogWrite(m2b, 0);
 }</pre>
     </section>
-
+ 
     <section>
         <span class="section-eyebrow">07 · Aprendizajes</span>
         <h2>Desafíos y qué aprendiste</h2>
         <div class="callout">
-            <p>Un error que suele aparecer al momento de cargar el programa es que el Arduino no aparezca en la lista de puertos. Generalmente esto ocurre por la ausencia de los drivers USB-Serial (por ejemplo, el CH340). Si te pasa, seguí <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">este tutorial</a> para instalarlos.</p>
+            <p>Al ser la segunda vez armando este circuito, identificar los pines y hacer las conexiones resultó más rápido que con Steamy I. Igualmente, es común que el Arduino no aparezca en la lista de puertos al cargar el programa: esto suele deberse a la falta de los drivers USB-Serial (por ejemplo, el CH340). Si te pasa, seguí <a href="https://www.instructables.com/Instalar-driver-para-CH340G/">este tutorial</a> para instalarlos.</p>
         </div>
     </section>
-
+ 
 </main>
-
+ 
 <script src="../../proyecto.js" defer></script>
 </body>
 </html>
