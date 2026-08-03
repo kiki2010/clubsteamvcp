@@ -1,0 +1,377 @@
+<!--
+Proyecto: Robot Omni
+Generado a partir del template de Steamy I (projects/_template/index.html) con ayuda de Claude.
+
+SUPUESTOS que hice y que conviene revisar antes de publicar:
+- Ubiqué este archivo en projects/robot-omni/index.html (por eso los ../../ del <head>).
+  Si tu carpeta tiene otro nombre, no hace falta tocar nada más del HTML.
+- Designador "R-02": como Steamy I es R-01, asumí que este es el segundo robot del club.
+  Cambialo si corresponde otro número.
+- Nombre del proyecto: usé "Robot Omni" porque así se anuncia por BLE en el código
+  (BLE.setLocalName("Robot_Omni")). Cambialo si le pusieron otro nombre.
+
+Los bloques marcados "Completar" son los que faltan llenar (fecha, fotos, doc, etc).
+Las secciones "La idea" y "Aprendizajes" tienen un borrador sugerido — son las más
+personales, así que revisalas y reescribilas con lo que se acuerden.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Omni || Club STEAM VCP</title>
+    <meta name="description" content="Documentación del proyecto Robot Omni, del Club STEAM VCP.">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../proyecto.css">
+</head>
+<body>
+
+<a class="back-link" href="../../index.html">&larr; Volver al feed</a>
+
+<header class="project-hero">
+    <!-- Foto de portada: reemplazá el src de abajo por el archivo
+         real (por ejemplo foto-portada.jpg) subido a esta misma
+         carpeta. Se recomienda una imagen apaisada (más ancha que
+         alta). Mientras no la subas, se ve una imagen genérica. -->
+    <div class="hero-photo">
+        <img src="omni.jpeg" alt="Foto de Robot Omni">
+    </div>
+
+    <div class="badge-row">
+        <span class="badge designator">R-02</span>
+        <span class="badge category">Robots</span>
+    </div>
+
+    <h1>Robot Omni</h1>
+
+    <!-- PREGUNTA 1: resumí el proyecto en una sola frase -->
+    <p class="tagline">Robot Omni es un robot terrestre con 4 ruedas mecanum controlado por Bluetooth (BLE), capaz de moverse en cualquier dirección —incluso en diagonal— y girar en el lugar, sin necesidad de cambiar la orientación del chasis.</p>
+
+    <div class="hero-meta">
+        <img src="../../assets/base/logo.jpeg" alt="">
+        <div class="who">
+            <strong>Club STEAM VCP</strong>
+            <span><!-- Completar: fecha --></span>
+        </div>
+    </div>
+</header>
+
+<main class="project-content">
+
+    <section>
+        <span class="section-eyebrow">01 · La idea</span>
+        <h2>¿Qué problema resuelve o qué te dio ganas de hacerlo?</h2>
+        <!-- Borrador sugerido, reescribilo con la motivación real del equipo -->
+        <p class="">La idea de Robot Omni es aprender sobre cinemática de ruedas mecanum y control BLE de múltiples motores en simultáneo: a diferencia de Steamy I, que se mueve como un auto, este robot puede desplazarse hacia los costados o en diagonal sin girar.</p>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">02 · Funcionamiento</span>
+        <h2>¿Cómo funciona?</h2>
+        <p class="">El Arduino levanta un servicio Bluetooth Low Energy (BLE) propio, con un UUID de servicio y uno de característica. Desde una app te conectás a esa característica y le mandás un byte de comando: los valores del 0 al 10 controlan el movimiento (detener, avanzar, retroceder, desplazarse hacia los costados, ir en diagonal o girar en el lugar) y cualquier valor de 11 en adelante se toma como la velocidad a aplicar a los 4 motores. Un shield controlador de motores (basado en la librería AFMotor, adaptada para Arduino UNO R4) maneja de forma independiente cada una de las 4 ruedas mecanum, que es lo que permite el movimiento omnidireccional.</p>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">03 · Lista de materiales</span>
+        <h2>¿Qué usaste para construirlo?</h2>
+        <table class="materials-table">
+            <thead>
+                <tr>
+                    <th>Material / herramienta</th>
+                    <th>Cantidad</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Arduino UNO R4 WiFi</td>
+                    <td>1</td>
+                    <td>Necesario para BLE nativo (librería ArduinoBLE)</td>
+                </tr>
+                <tr>
+                    <td>Shield controlador de motores</td>
+                    <td>1</td>
+                    <td>Compatible con la librería AFMotor (a confirmar el modelo exacto)</td>
+                </tr>
+                <tr>
+                    <td>Motores DC con caja reductora</td>
+                    <td>4</td>
+                    <td>Uno por rueda</td>
+                </tr>
+                <tr>
+                    <td>Ruedas mecanum</td>
+                    <td>4</td>
+                    <td>2 "izquierdas" + 2 "derechas" (rodillos a 45° en sentidos opuestos)</td>
+                </tr>
+                <tr>
+                    <td>Base o "chasis"</td>
+                    <td>1</td>
+                    <td>Estructura del robot</td>
+                </tr>
+                <tr>
+                    <td>Powerbanks</td>
+                    <td>2</td>
+                    <td>Alimentación del circuito</td>
+                </tr>
+                <tr>
+                    <td>Cables Jumpers</td>
+                    <td>—</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">04 · Evidencia</span>
+        <h2>Fotos, diagramas o capturas</h2>
+        <div class="gallery">
+            <figure>
+                <div class="thumb-wrap"><img src="omni.jpeg" alt="" loading="lazy"></div>
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <div class="thumb-wrap"><img src="image.png" alt="" loading="lazy"></div>
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <div class="thumb-wrap"><img src="image2.png" alt="" loading="lazy"></div>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">05 · Instructivo</span>
+        <h2>Cómo replicarlo, paso a paso</h2>
+        <ol class="steps">
+            <li>
+                <h3>Conseguí los materiales y revisá el pinout</h3>
+                <p>Juntá lo de la lista de materiales de arriba. Antes de conectar nada, revisá el pinout de tu Arduino para verificar que los pines que vas a usar no estén ocupados por otro proceso — así evitás dañar el microcontrolador o encontrar problemas sin saber bien qué los causa.</p>
+            </li>
+            <li>
+                <h3>Armá el chasis y montá las ruedas mecanum</h3>
+                <p>Prestá atención a la orientación de los rodillos: dos ruedas van "espejadas" respecto a las otras dos. Si las montás todas iguales, el robot no va a poder desplazarse lateralmente ni en diagonal, solo hacia adelante y atrás.</p>
+            </li>
+            <li>
+                <h3>Conectá los 4 motores al shield</h3>
+                <p>Respetá la asignación del código: motor1 trasero izquierdo, motor2 trasero derecho, motor3 delantero derecho, motor4 delantero izquierdo. Alimentá el conjunto con las powerbanks.</p>
+            </li>
+            <li>
+                <h3>Cargá el programa en el Arduino</h3>
+                <p>Instalá las librerías <code>ArduinoBLE</code> y <code>AFMotor_R4</code> desde el gestor de librerías del IDE de Arduino, copiá el código de la sección "Código y archivos" de abajo y subilo a la placa.</p>
+            </li>
+            <li>
+                <h3>Controlalo desde el celular</h3>
+                <p>Conectate por BLE al robot (se anuncia como <code>Robot_Omni</code>) y mandale un byte de comando: <code>0</code> parar, <code>1</code> adelante, <code>2</code> atrás, <code>3</code>/<code>4</code> lateral izquierda/derecha, <code>5</code>-<code>8</code> diagonales, <code>9</code>/<code>10</code> rotar en el lugar, y cualquier valor de <code>11</code> a <code>255</code> para ajustar la velocidad de los 4 motores.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">06 · Código y archivos</span>
+        <h2>¿Dónde está el código o los archivos del proyecto?</h2>
+        <ul class="resource-links">
+            <li><a href="#" class=""><!-- Completar: link a la documentación --></a></li>
+        </ul>
+        <p></p>
+        <pre class="code-panel">
+            #include &lt;ArduinoBLE.h&gt;
+            #include "AFMotor_R4.h"
+
+            // --- Definición de los 4 Motores (Según el esquema de Cokoino) ---
+            AF_DCMotor motor1(1); // Trasero Izquierdo
+            AF_DCMotor motor2(2); // Trasero Derecho
+            AF_DCMotor motor3(3); // Delantero Derecho
+            AF_DCMotor motor4(4); // Delantero Izquierdo
+
+            // --- Identificadores UUID del Bluetooth BLE ---
+            const char* serviceUUID = "19B10000-E8F2-537E-4F6C-D104768A1214";
+            const char* charUUID    = "19B10001-E8F2-537E-4F6C-D104768A1214";
+
+            BLEService robotService(serviceUUID);
+            BLEByteCharacteristic commandCharacteristic(charUUID, BLEWrite);
+
+            // --- Timeout de seguridad ---
+            unsigned long lastCmdTime = 0;
+            const unsigned long TIMEOUT_MS = 300;
+
+            void setup() {
+              Serial.begin(9600);
+
+              motor1.setSpeed(200);
+              motor2.setSpeed(200);
+              motor3.setSpeed(200);
+              motor4.setSpeed(200);
+              pararMotores();
+
+              if (!BLE.begin()) {
+                Serial.println("¡Error crítico al iniciar el módulo BLE!");
+                while (1);
+              }
+
+              BLE.setLocalName("Robot_Omni");
+              BLE.setAdvertisedService(robotService);
+              robotService.addCharacteristic(commandCharacteristic);
+              BLE.addService(robotService);
+
+              BLE.advertise();
+              Serial.println("Robot listo. Esperando conexión...");
+            }
+
+            void loop() {
+              BLEDevice central = BLE.central();
+
+              if (central) {
+                Serial.print("Controlador conectado. MAC: ");
+                Serial.println(central.address());
+
+                while (central.connected()) {
+                  BLE.poll();
+
+                  if (commandCharacteristic.written()) {
+                    byte comando = commandCharacteristic.value();
+                    Serial.print("Comando recibido: ");
+                    Serial.println(comando);
+                    procesarComando(comando);
+                  }
+                  // Se eliminó el bloque del IF que frenaba por timeout
+                }
+
+                Serial.println("Controlador desconectado. Frenando robot...");
+                pararMotores();
+              }
+            }
+
+            // ====================================================================
+            // PROCESAMIENTO DE ACCIONES
+            // ====================================================================
+            void procesarComando(byte cmd) {
+
+              if (cmd >= 11) {
+                motor1.setSpeed(cmd);
+                motor2.setSpeed(cmd);
+                motor3.setSpeed(cmd);
+                motor4.setSpeed(cmd);
+                Serial.print("Velocidad actualizada: ");
+                Serial.println(cmd);
+                return;
+              }
+
+              switch (cmd) {
+                case 0:  pararMotores();              break;
+                case 1:  moverAdelante();             break;
+                case 2:  moverAtras();                break;
+                case 3:  moverIzquierda();            break;
+                case 4:  moverDerecha();              break;
+                case 5:  diagonalAdelanteIzquierda(); break;
+                case 6:  diagonalAdelanteDerecha();   break;
+                case 7:  diagonalAtrasIzquierda();    break;
+                case 8:  diagonalAtrasDerecha();      break;
+                case 9:  rotarIzquierda();            break;
+                case 10: rotarDerecha();              break;
+                default: pararMotores();              break;
+              }
+            }
+
+            // ====================================================================
+            // FUNCIONES DE MOVIMIENTO
+            // ====================================================================
+            void moverAdelante() {
+              motor1.run(BACKWARD);
+              motor2.run(FORWARD);
+              motor3.run(BACKWARD);
+              motor4.run(FORWARD);
+            }
+
+            void moverAtras() {
+              motor1.run(FORWARD);
+              motor2.run(BACKWARD);
+              motor3.run(FORWARD);
+              motor4.run(BACKWARD);
+            }
+
+            void moverIzquierda() {
+              motor1.run(BACKWARD);
+              motor2.run(BACKWARD);
+              motor3.run(BACKWARD);
+              motor4.run(BACKWARD);
+            }
+
+            void moverDerecha() {
+              motor1.run(FORWARD);
+              motor2.run(FORWARD);
+              motor3.run(FORWARD);
+              motor4.run(FORWARD);
+            }
+
+            void rotarIzquierda() {
+              motor1.run(FORWARD);
+              motor2.run(FORWARD);
+              motor3.run(BACKWARD);
+              motor4.run(BACKWARD);
+            }
+
+            void rotarDerecha() {
+              motor1.run(BACKWARD);
+              motor2.run(BACKWARD);
+              motor3.run(FORWARD);
+              motor4.run(FORWARD);
+            }
+
+            void diagonalAdelanteIzquierda() {
+              motor1.run(BACKWARD);
+              motor2.run(RELEASE);
+              motor3.run(BACKWARD);
+              motor4.run(RELEASE);
+            }
+
+            void diagonalAdelanteDerecha() {
+              motor1.run(RELEASE);
+              motor2.run(FORWARD);
+              motor3.run(RELEASE);
+              motor4.run(FORWARD);
+            }
+
+            void diagonalAtrasIzquierda() {
+              motor1.run(RELEASE);
+              motor2.run(BACKWARD);
+              motor3.run(RELEASE);
+              motor4.run(BACKWARD);
+            }
+
+            void diagonalAtrasDerecha() {
+              motor1.run(FORWARD);
+              motor2.run(RELEASE);
+              motor3.run(FORWARD);
+              motor4.run(RELEASE);
+            }
+
+            void pararMotores() {
+              motor1.run(RELEASE);
+              motor2.run(RELEASE);
+              motor3.run(RELEASE);
+              motor4.run(RELEASE);
+            }
+        </pre>
+    </section>
+
+    <section>
+        <span class="section-eyebrow">07 · Aprendizajes</span>
+        <h2>Desafíos y qué aprendiste</h2>
+        <!-- Borrador sugerido, a partir de una observación del código -->
+        <div class="callout">
+            <p>El código incluye una variable de timeout de seguridad pensada para frenar el robot si se corta la conexión BLE mientras está en movimiento, pero el bloque que la aplicaba fue quitado. Hoy, si el celular se desconecta en pleno movimiento, el robot no frena solo — reincorporar esa protección es un buen próximo desafío.</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="../../proyecto.js" defer></script>
+</body>
+</html>
