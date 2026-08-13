@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>~ Gracias, Carlo ~ Gryffindor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --scarlet:#740001;
+  --scarlet-bright:#ae0001;
+  --gold:#d3a625;
+  --gold-bright:#eeba30;
+  --parchment:#f4e8c9;
+  --parchment-dark:#e8d5a3;
+  --ink:#2b1600;
+  --stone:#120b08;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(174,0,1,.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 50% 110%,
+      rgba(174,0,1,.25),
+      transparent 60%
+    ),
+    var(--stone);
+
+  background-attachment:fixed;
+
+  font-family:'Cormorant Garamond', serif;
+  color:var(--parchment);
+
+  overflow-x:hidden;
+  position:relative;
+}
+
+
+/* =========================================================
+   VELAS FLOTANTES
+   ========================================================= */
+
+.candle{
+  position:fixed;
+
+  width:6px;
+
+  border-radius:2px;
+
+  background:
+    linear-gradient(
+      #fff8dc,
+      #eeba30
+    );
+
+  box-shadow:
+    0 0 18px 6px rgba(238,186,48,.55);
+
+  animation:
+    flicker 2.6s ease-in-out infinite,
+    drift 9s ease-in-out infinite;
+
+  z-index:1;
+
+  opacity:.85;
+}
+
+@keyframes flicker{
+
+  0%,100%{
+    opacity:.65;
+
+    box-shadow:
+      0 0 14px 4px rgba(238,186,48,.4);
+  }
+
+  50%{
+    opacity:1;
+
+    box-shadow:
+      0 0 22px 8px rgba(238,186,48,.7);
+  }
+}
+
+@keyframes drift{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-14px);
+  }
+}
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+canvas#confetti{
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+
+  z-index:999;
+}
+
+
+/* =========================================================
+   CINTA SUPERIOR
+   ========================================================= */
+
+.banner-wrap{
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--scarlet-bright),
+      var(--scarlet)
+    );
+
+  border-bottom:3px solid var(--gold);
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.5);
+
+  overflow:hidden;
+
+  white-space:nowrap;
+
+  padding:7px 0;
+
+  position:relative;
+
+  z-index:3;
+}
+
+.banner-track{
+
+  display:inline-block;
+
+  animation:
+    scroll-left 16s linear infinite;
+
+  font-family:'Cinzel Decorative', serif;
+
+  font-size:13px;
+
+  letter-spacing:2px;
+
+  color:var(--gold-bright);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.6);
+}
+
+@keyframes scroll-left{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   COLUMNAS LATERALES
+   ========================================================= */
+
+.side-col{
+
+  position:fixed;
+
+  top:0;
+
+  width:100px;
+
+  height:100vh;
+
+  overflow:hidden;
+
+  z-index:2;
+
+  background:
+    linear-gradient(
+      180deg,
+      #1a0d09,
+      #0c0605
+    );
+
+  border-left:2px solid var(--gold);
+  border-right:2px solid var(--gold);
+}
+
+.side-col.left{
+  left:0;
+  border-left:none;
+}
+
+.side-col.right{
+  right:0;
+  border-right:none;
+}
+
+.side-track{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  animation:
+    scroll-up 10s linear infinite;
+}
+
+.side-col.right .side-track{
+  animation-name:scroll-up-r;
+}
+
+.side-item{
+
+  font-size:30px;
+
+  padding:20px 0;
+
+  line-height:1;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(238,186,48,.5)
+    );
+}
+
+@keyframes scroll-up{
+
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(-50%);
+  }
+}
+
+@keyframes scroll-up-r{
+
+  from{
+    transform:translateY(-50%);
+  }
+
+  to{
+    transform:translateY(0);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:900px){
+
+  .side-col{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   siempre centrado con margin auto — sin overrides fijos
+   que lo desplacen en pantallas anchas
+   ========================================================= */
+
+main{
+
+  position:relative;
+
+  z-index:3;
+
+  max-width:640px;
+
+  margin:36px auto 60px;
+
+  padding:0 20px;
+}
+
+
+/* =========================================================
+   PERGAMINO
+   ========================================================= */
+
+.scroll-box{
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.04),
+      rgba(0,0,0,.08)
+    ),
+
+    var(--parchment);
+
+  color:var(--ink);
+
+  border:2px solid var(--gold);
+
+  outline:6px solid var(--scarlet);
+
+  outline-offset:-10px;
+
+  box-shadow:
+
+    0 18px 40px rgba(0,0,0,.55),
+
+    inset 0 0 60px
+    rgba(116,0,1,.08);
+
+  padding:34px 30px 28px;
+
+  position:relative;
+
+  /* CENTRAR TODO EL CONTENIDO */
+  text-align:center;
+}
+
+
+/* =========================================================
+   ESCUDO
+   ========================================================= */
+
+.crest-wrap{
+
+  position:relative;
+
+  width:110px;
+
+  height:120px;
+
+  margin:-74px auto 10px;
+
+  filter:
+    drop-shadow(
+      0 6px 10px rgba(0,0,0,.5)
+    );
+}
+
+.crest-bg{
+
+  width:100%;
+
+  height:100%;
+
+  display:block;
+}
+
+.crest-center{
+
+  position:absolute;
+
+  top:46%;
+
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  width:58%;
+
+  height:52%;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--gold-bright),
+      var(--gold) 70%
+    );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:34px;
+
+  line-height:1;
+
+  overflow:hidden;
+
+  box-shadow:
+
+    0 0 0 3px var(--scarlet-bright),
+
+    inset 0 2px 4px
+    rgba(0,0,0,.35);
+}
+
+.crest-center img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:50%;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+h1.title{
+
+  font-family:
+    'Cinzel Decorative',
+    serif;
+
+  font-weight:900;
+
+  font-size:26px;
+
+  line-height:1.5;
+
+  text-align:center;
+
+  margin:6px 0 4px;
+
+  color:var(--scarlet-bright);
+
+  text-shadow:
+    1px 1px 0 var(--gold-bright);
+}
+
+.subtitle{
+
+  text-align:center;
+
+  font-family:
+    'Cinzel Decorative',
+    serif;
+
+  font-size:11px;
+
+  letter-spacing:3px;
+
+  color:var(--scarlet);
+
+  margin-bottom:16px;
+
+  text-transform:uppercase;
+}
+
+
+/* =========================================================
+   SEPARADORES
+   ========================================================= */
+
+.rule{
+
+  height:3px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      var(--scarlet-bright),
+      var(--gold),
+      transparent
+    );
+
+  margin:16px 0;
+
+  border-radius:2px;
+}
+
+
+/* =========================================================
+   MENSAJE
+   ========================================================= */
+
+p.msg{
+
+  font-size:21px;
+
+  font-style:italic;
+
+  line-height:1.65;
+
+  text-align:center;
+
+  margin:14px auto;
+
+  max-width:500px;
+}
+
+p.msg b{
+
+  font-style:normal;
+
+  color:var(--scarlet-bright);
+}
+
+
+/* =========================================================
+   FOTOS VERTICALES
+   ========================================================= */
+
+.photo-frame{
+
+  /* ANCHO */
+  width:250px;
+
+  /* ALTO - MÁS GRANDE PARA FORMATO VERTICAL */
+  height:340px;
+
+  margin:20px auto 8px;
+
+  background:#000;
+
+  border:10px solid;
+
+  border-image:
+    linear-gradient(
+      135deg,
+      var(--gold-bright),
+      var(--scarlet-bright),
+      var(--gold)
+    ) 1;
+
+  box-shadow:
+
+    0 10px 26px rgba(0,0,0,.5),
+
+    inset 0 0 0 3px var(--stone);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  position:relative;
+
+  border-radius:6px;
+}
+
+.photo-frame img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  animation:
+    fade-in .6s ease;
+}
+
+@keyframes fade-in{
+
+  from{
+
+    opacity:0;
+
+    transform:scale(1.04);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:scale(1);
+  }
+}
+
+.photo-caption{
+
+  text-align:center;
+
+  font-family:
+    'Cinzel Decorative',
+    serif;
+
+  font-size:10px;
+
+  letter-spacing:1px;
+
+  color:var(--scarlet);
+
+  margin-top:6px;
+}
+
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+.link-wrap{
+
+  text-align:center;
+
+  margin:22px 0 6px;
+
+  font-size:19px;
+}
+
+a.retro-link{
+
+  color:#0000EE;
+
+  text-decoration:underline;
+
+  font-weight:700;
+}
+
+a.retro-link:visited{
+
+  color:#551A8B;
+}
+
+a.retro-link:hover{
+
+  color:var(--scarlet-bright);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-box{
+
+  text-align:center;
+
+  font-family:
+    'Cinzel Decorative',
+    serif;
+
+  font-size:9px;
+
+  letter-spacing:1.5px;
+
+  line-height:2.6;
+
+  color:var(--gold-bright);
+
+  padding:22px 0 40px;
+}
+
+.points{
+
+  display:inline-block;
+
+  background:#000;
+
+  color:var(--gold-bright);
+
+  font-family:
+    'Cinzel Decorative',
+    serif;
+
+  font-size:14px;
+
+  padding:8px 14px;
+
+  border:2px solid var(--gold-bright);
+
+  border-radius:4px;
+
+  letter-spacing:2px;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width:600px){
+
+  main{
+
+    padding:0 12px;
+
+    margin-top:30px;
+  }
+
+  .scroll-box{
+
+    padding:
+      30px 18px 25px;
+  }
+
+  h1.title{
+
+    font-size:21px;
+  }
+
+  p.msg{
+
+    font-size:19px;
+  }
+
+  .photo-frame{
+
+    width:220px;
+
+    height:300px;
+  }
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     CONFETTI
+     ===================================================== -->
+
+<canvas id="confetti"></canvas>
+
+<div id="candles"></div>
+
+
+<!-- =====================================================
+     BANNER
+     ===================================================== -->
+
+<div class="banner-wrap">
+
+  <div class="banner-track">
+
+    🦁 ¡MUCHAS GRACIAS CARLO!
+    · CLUB STEAM VCP TE LO AGRADECE
+    · VALOR · COMPAÑERISMO · CÓDIGO 🦁
+
+    &nbsp;&nbsp;&nbsp;
+
+    🦁 ¡MUCHAS GRACIAS CARLO!
+    · CLUB STEAM VCP TE LO AGRADECE
+    · VALOR · COMPAÑERISMO · CÓDIGO 🦁
+
+    &nbsp;&nbsp;&nbsp;
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     COLUMNAS
+     ===================================================== -->
+
+<div class="side-col left">
+
+  <div
+    class="side-track"
+    id="side-left">
+  </div>
+
+</div>
+
+
+<div class="side-col right">
+
+  <div
+    class="side-track"
+    id="side-right">
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTENIDO
+     ===================================================== -->
+
+<main>
+
+  <div class="scroll-box">
+
+
+    <!-- ESCUDO -->
+
+    <div class="crest-wrap">
+
+      <svg
+        class="crest-bg"
+        viewBox="0 0 100 110"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <path
+          d="M50 4 L92 18 V54
+             C92 82 74 100 50 108
+             C26 100 8 82 8 54
+             V18 Z"
+
+          fill="#740001"
+
+          stroke="#d3a625"
+
+          stroke-width="3"/>
+
+        <path
+          d="M50 10 L86 22 V54
+             C86 78 71 94 50 101
+             C29 94 14 78 14 54
+             V22 Z"
+
+          fill="none"
+
+          stroke="#eeba30"
+
+          stroke-width="1.5"/>
+
+      </svg>
+
+
+      <div
+        class="crest-center"
+        id="crest-center">
+
+        🦁
+
+      </div>
+
+    </div>
+
+
+    <!-- TÍTULO -->
+
+    <div class="subtitle">
+      Club STEAM VCP
+    </div>
+
+
+    <h1 class="title">
+
+      Un gran agradecimiento
+      <br>
+      a Carlo
+
+    </h1>
+
+
+    <div class="rule"></div>
+
+
+    <!-- MENSAJE -->
+
+    <p class="msg">
+
+      Muchas gracias, Carlo, por haber ayudado
+      a desarrollar las
+      <b>páginas de los bots</b>.
+
+      <br><br>
+
+      Tu trabajo y dedicación son una parte
+      importante del
+      <b>Club STEAM VCP</b>. 🦁
+
+    </p>
+
+
+    <!-- FOTO -->
+
+    <div class="photo-frame">
+
+      <img
+        id="slideshow-img"
+        src=""
+        alt="Foto de Carlo">
+
+    </div>
+
+
+    <div
+      class="photo-caption"
+      id="photo-caption">
+
+      cargando foto...
+
+    </div>
+
+
+    <div class="rule"></div>
+
+
+    <!-- LINK -->
+
+    <div class="link-wrap">
+
+      🪶
+
+      <a
+        class="retro-link"
+        id="github-link"
+        href="#"
+        target="_blank"
+        rel="noopener">
+
+        Visitá la web de Carlo
+
+      </a>
+
+      🪶
+
+    </div>
+
+
+  </div>
+
+
+  <!-- ===================================================
+       FOOTER
+       =================================================== -->
+
+  <div class="footer-box">
+
+    <div
+      class="points"
+      id="house-points">
+
+      1500 PUNTOS PARA GRYFFINDOR
+
+    </div>
+
+    <div>
+
+      ✦ valor · coraje · determinación ✦
+
+    </div>
+
+  </div>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================================================
+   CONFIGURACIÓN
+   ========================================================= */
+
+
+/* Página de Carlo */
+
+const GITHUB_URL =
+  "https://carlote12.github.io/webpageCarlo/";
+
+
+/* =========================================================
+   FOTOS
+   =========================================================
+
+   Estos archivos van al lado de este HTML, con estos
+   nombres exactos (con espacio, paréntesis y .jpeg):
+
+   carlo (1).jpeg
+   carlo (2).jpeg
+   carlo (3).jpeg
+   carlo (4).jpeg
+   carlo (5).jpeg
+
+   ========================================================= */
+
+const photos = [
+
+  "carlo (1).jpeg",
+  "carlo (2).jpeg",
+  "carlo (3).jpeg",
+  "carlo (4).jpeg",
+  "carlo (5).jpeg"
+
+];
+
+
+/* =========================================================
+   IMAGEN DEL LEÓN
+   ========================================================= */
+
+const LION_IMAGE =
+  "Gryffindorcrest.webp";
+
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+document
+  .getElementById("github-link")
+  .href = GITHUB_URL;
+
+
+/* =========================================================
+   ESCUDO
+   ========================================================= */
+
+if(LION_IMAGE){
+
+  const crestCenter =
+    document.getElementById(
+      "crest-center"
+    );
+
+  const testLion =
+    new Image();
+
+  testLion.onload = () => {
+
+    crestCenter.innerHTML =
+      `<img
+        src="${LION_IMAGE}"
+        alt="León">`;
+
+  };
+
+  testLion.src =
+    LION_IMAGE;
+
+}
+
+
+/* =========================================================
+   VELAS
+   ========================================================= */
+
+const candleHost =
+  document.getElementById(
+    "candles"
+  );
+
+for(let i = 0; i < 10; i++){
+
+  const c =
+    document.createElement(
+      "div"
+    );
+
+  c.className =
+    "candle";
+
+  c.style.left =
+    (Math.random() * 100) +
+    "vw";
+
+  c.style.top =
+    (10 + Math.random() * 70) +
+    "vh";
+
+  c.style.height =
+    (16 + Math.random() * 14) +
+    "px";
+
+  c.style.animationDelay =
+    (Math.random() * 3) +
+    "s, " +
+    (Math.random() * 4) +
+    "s";
+
+  candleHost.appendChild(c);
+
+}
+
+
+/* =========================================================
+   SLIDESHOW
+   ========================================================= */
+
+const img =
+  document.getElementById(
+    "slideshow-img"
+  );
+
+const caption =
+  document.getElementById(
+    "photo-caption"
+  );
+
+let photoIndex = 0;
+
+
+const placeholderColors = [
+
+  "#740001",
+  "#ae0001",
+  "#5c0000",
+  "#8a1a1a"
+
+];
+
+
+function placeholderSVG(
+  name,
+  i
+){
+
+  const color =
+    placeholderColors[
+      i %
+      placeholderColors.length
+    ];
+
+
+  const svg = `
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="250"
+      height="340">
+
+      <rect
+        width="100%"
+        height="100%"
+        fill="${color}"/>
+
+      <text
+        x="50%"
+        y="42%"
+        font-size="42"
+        text-anchor="middle"
+        dominant-baseline="middle">
+
+        🖼️
+
+      </text>
+
+      <text
+        x="50%"
+        y="66%"
+        font-size="12"
+        fill="#eeba30"
+        text-anchor="middle"
+        font-family="serif">
+
+        poné ${name}
+
+      </text>
+
+      <text
+        x="50%"
+        y="78%"
+        font-size="10"
+        fill="#eeba30"
+        text-anchor="middle"
+        font-family="serif">
+
+        al lado del html
+
+      </text>
+
+    </svg>
+
+  `;
+
+
+  return (
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(svg)
+  );
+
+}
+
+
+function showPhoto(i){
+
+  const name =
+    photos[i];
+
+  const testImg =
+    new Image();
+
+
+  testImg.onload = () => {
+
+    img.src =
+      name;
+
+    caption.textContent =
+      name;
+
+    img.style.animation =
+      "none";
+
+    void img.offsetWidth;
+
+    img.style.animation =
+      "fade-in .6s ease";
+
+  };
+
+
+  testImg.onerror = () => {
+
+    img.src =
+      placeholderSVG(
+        name,
+        i
+      );
+
+    caption.textContent =
+      "falta: " + name;
+
+  };
+
+
+  testImg.src =
+    name;
+
+}
+
+
+showPhoto(photoIndex);
+
+
+setInterval(() => {
+
+  photoIndex =
+    (photoIndex + 1) %
+    photos.length;
+
+  showPhoto(
+    photoIndex
+  );
+
+}, 2800);
+
+
+/* =========================================================
+   DECORACIÓN LATERAL
+   ========================================================= */
+
+const decorations = [
+
+  "🦁",
+  "🪄",
+  "⭐",
+  "🪶",
+  "📖",
+  "🕯️"
+
+];
+
+
+function buildSideColumn(
+  el,
+  times
+){
+
+  let html = "";
+
+
+  for(
+    let r = 0;
+    r < times;
+    r++
+  ){
+
+    decorations.forEach(
+      d => {
+
+        html +=
+          `<div class="side-item">
+            ${d}
+          </div>`;
+
+      }
+    );
+
+  }
+
+
+  el.innerHTML =
+    html;
+
+}
+
+
+buildSideColumn(
+
+  document.getElementById(
+    "side-left"
+  ),
+
+  6
+
+);
+
+
+buildSideColumn(
+
+  document.getElementById(
+    "side-right"
+  ),
+
+  6
+
+);
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+const canvas =
+  document.getElementById(
+    "confetti"
+  );
+
+const ctx =
+  canvas.getContext(
+    "2d"
+  );
+
+
+function resize(){
+
+  canvas.width =
+    innerWidth;
+
+  canvas.height =
+    innerHeight;
+
+}
+
+
+resize();
+
+
+window.addEventListener(
+  "resize",
+  resize
+);
+
+
+const colors = [
+
+  "#ae0001",
+  "#740001",
+  "#eeba30",
+  "#d3a625"
+
+];
+
+
+let particles = [];
+
+
+const CONFETTI_DURATION_MS =
+  4000;
+
+
+const startTime =
+  performance.now();
+
+
+let spawning = true;
+
+
+function spawnParticle(){
+
+  particles.push({
+
+    x:
+      Math.random() *
+      canvas.width,
+
+    y:
+      -20,
+
+    size:
+      6 +
+      Math.random() * 7,
+
+    speedY:
+      2 +
+      Math.random() * 3,
+
+    speedX:
+      (Math.random() - .5) *
+      2.5,
+
+    rotation:
+      Math.random() * 360,
+
+    rotSpeed:
+      (Math.random() - .5) *
+      12,
+
+    color:
+      colors[
+        Math.floor(
+          Math.random() *
+          colors.length
+        )
+      ],
+
+    shape:
+      Math.random() > .5
+        ? "rect"
+        : "circle"
+
+  });
+
+}
+
+
+function drawParticle(p){
+
+  ctx.save();
+
+  ctx.translate(
+    p.x,
+    p.y
+  );
+
+  ctx.rotate(
+    p.rotation *
+    Math.PI / 180
+  );
+
+  ctx.fillStyle =
+    p.color;
+
+
+  if(
+    p.shape === "rect"
+  ){
+
+    ctx.fillRect(
+
+      -p.size / 2,
+
+      -p.size / 4,
+
+      p.size,
+
+      p.size / 2
+
+    );
+
+  }
+
+  else{
+
+    ctx.beginPath();
+
+    ctx.arc(
+
+      0,
+      0,
+      p.size / 2,
+      0,
+      Math.PI * 2
+
+    );
+
+    ctx.fill();
+
+  }
+
+
+  ctx.restore();
+
+}
+
+
+let frame = 0;
+
+
+function loop(now){
+
+  frame++;
+
+
+  const elapsed =
+    now -
+    startTime;
+
+
+  if(
+
+    spawning &&
+
+    elapsed <
+    CONFETTI_DURATION_MS &&
+
+    frame % 4 === 0
+
+  ){
+
+    spawnParticle();
+    spawnParticle();
+    spawnParticle();
+
+  }
+
+
+  if(
+    elapsed >=
+    CONFETTI_DURATION_MS
+  ){
+
+    spawning =
+      false;
+
+  }
+
+
+  ctx.clearRect(
+
+    0,
+    0,
+    canvas.width,
+    canvas.height
+
+  );
+
+
+  particles.forEach(
+    p => {
+
+      p.y +=
+        p.speedY;
+
+      p.x +=
+        p.speedX;
+
+      p.rotation +=
+        p.rotSpeed;
+
+      drawParticle(p);
+
+    }
+  );
+
+
+  particles =
+    particles.filter(
+      p =>
+        p.y <
+        canvas.height + 30
+    );
+
+
+  requestAnimationFrame(
+    loop
+  );
+
+}
+
+
+requestAnimationFrame(
+  loop
+);
+
+
+</script>
+
+</body>
+</html>

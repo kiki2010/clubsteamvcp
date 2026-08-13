@@ -217,3 +217,10 @@ main,
     width: 100%;
     max-width: 500px;
 }
+
+.thanks-section{
+  max-width:var(--max-width);
+  margin:24px auto;
+  padding:0 24px;
+  text-align:center;
+}
