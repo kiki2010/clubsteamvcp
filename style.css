@@ -324,7 +324,7 @@ main,
   padding:10px 14px;
 }
 
-.map-wrap{
+.map-wrap{ 
   flex:1 1 280px;
   max-width:360px;
   aspect-ratio:4/3;
