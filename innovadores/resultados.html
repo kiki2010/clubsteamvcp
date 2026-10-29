@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Club STEAM VCP</title>
+
+    <meta name="description" content="Resultados de la votación por categoría.">
+    <link rel="icon" type="image/jpeg" href="../assets/base/logo.jpeg">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="votacion.css">
+</head>
+<body>
+    <a class="volver" href="./">← Volver a la votación</a>
+
+    <header class="site-header">
+        <div class="header-row">
+            <img src="../assets/base/logo.jpeg" alt="logo club" class="logo">
+            <div class="header-text">
+                <h1>Resultados</h1>
+                <p class="subtitle">Los tres proyectos con mejor puntaje en cada categoría.</p>
+                <div class="estado" id="estado" role="status"><span class="punto"></span><span id="estadoTexto">Cargando…</span></div>
+            </div>
+        </div>
+        <div class="trace-line" aria-hidden="true">
+            <span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span>
+        </div>
+    </header>
+
+    <main>
+        <p class="whatsapp-note aviso-demo" id="avisoDemo" hidden>
+            Modo demostración con datos de ejemplo. Pegá tus enlaces en la sección CONFIGURACIÓN de comun.js para ver los votos reales.
+        </p>
+
+        <section class="resultados" aria-label="Resultados">
+            <h2 class="section-title">🏆 Resultados por categoría</h2>
+            <p class="resultados-texto" id="textoResultados">Cada institución pesa lo mismo, sin importar cuántos estudiantes hayan votado.</p>
+            <div class="events-grid" id="categorias"></div>
+            <p class="nota">El puntaje de cada proyecto es el promedio del porcentaje de votos que le dio cada institución. Así, el resultado no depende de cuántos estudiantes participó de cada una.</p>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Club Steam VCP</h3>
+        <a href="https://kiki2010.github.io/">Chiara Catalini</a>
+    </footer>
+
+<script src="comun.js" defer></script>
+<script src="resultados.js" defer></script>
+</body>
+</html>

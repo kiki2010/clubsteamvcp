@@ -1,0 +1,179 @@
+/* Estilos propios de la sección de votación. Usan las variables de ../style.css */
+.volver{
+    display:inline-block;
+    margin:24px 24px 0;
+    color:var(--primary);
+    font-weight:600;
+}
+.volver:hover{ text-decoration:underline; }
+
+.estado{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+    color:var(--text-light);
+    font-size:.9rem;
+}
+.estado .punto{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22a06b;
+    flex:none;
+}
+.estado.error .punto{ background:#d9534f; }
+.estado.demo .punto{ background:var(--secondary); }
+
+.aviso-demo{ max-width:70ch; margin:0 auto 24px; }
+
+.principal{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+}
+.panel{
+    background:var(--surface);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px 24px;
+}
+.panel h2{
+    font-size:1.2rem;
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.contador-numero{
+    font-size:clamp(4.5rem, 14vw, 9rem);
+    font-weight:800;
+    line-height:1;
+    color:var(--primary);
+    font-variant-numeric:tabular-nums;
+}
+.contador-etiqueta{
+    font-size:1.2rem;
+    margin-top:10px;
+}
+
+.top-instituciones{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+.inst-fila{
+    display:grid;
+    grid-template-columns:1.8rem 1fr auto;
+    gap:4px 12px;
+    align-items:baseline;
+}
+.inst-pos{ font-weight:800; font-size:1.3rem; color:var(--text-light); }
+.inst-fila:first-child .inst-pos{ color:var(--primary); }
+.inst-nombre{ font-weight:600; overflow-wrap:anywhere; }
+.inst-cantidad{ font-weight:600; font-variant-numeric:tabular-nums; }
+.barra{
+    grid-column:2 / 4;
+    height:10px;
+    background:var(--border);
+    border-radius:999px;
+    overflow:hidden;
+}
+.barra > span{
+    display:block;
+    height:100%;
+    background:var(--secondary);
+    border-radius:999px;
+    transition:width .7s ease;
+}
+.inst-fila:first-child .barra > span{ background:var(--primary); }
+.vacio{ color:var(--text-light); }
+
+.resultados{
+    max-width:var(--max-width);
+    margin:48px auto 0;
+}
+.resultados-texto{
+    text-align:center;
+    color:var(--text-light);
+    max-width:60ch;
+    margin:-8px auto 24px;
+}
+.categoria{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+    border-top:6px solid var(--color);
+}
+.categoria h3{ margin-bottom:0; }
+.pin:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+.pin:disabled:hover{
+    background:var(--secondary);
+    color:inherit;
+}
+
+.podio{
+    list-style:none;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+.podio li{
+    display:grid;
+    grid-template-columns:2rem 1fr auto;
+    gap:0 10px;
+    align-items:baseline;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .5s ease, transform .5s ease;
+}
+.podio li.visible{ opacity:1; transform:none; }
+.podio .pos{ font-weight:800; font-size:1.4rem; color:var(--text-light); }
+.podio li.primero .pos{ color:var(--primary); }
+.podio .nombre{ font-weight:600; overflow-wrap:anywhere; }
+.podio li.primero .nombre{ font-size:1.2rem; font-weight:800; }
+.podio .puntos{ font-weight:600; font-variant-numeric:tabular-nums; }
+.podio .detalle{
+    grid-column:2 / 4;
+    color:var(--text-light);
+    font-size:.85rem;
+}
+.podio .empate{ color:var(--primary); font-weight:600; }
+.mensaje{ color:var(--text-light); font-size:.95rem; }
+
+.nota{
+    max-width:70ch;
+    margin:32px auto 0;
+    text-align:center;
+    color:var(--text-light);
+    font-size:.9rem;
+}
+
+footer{
+    max-width:var(--max-width);
+    margin:40px auto 0;
+    padding:24px;
+    color:var(--text-light);
+}
+footer h3{ color:var(--primary); margin-bottom:8px; }
+
+:focus-visible{ outline:3px solid var(--text); outline-offset:3px; }
+
+@media (prefers-reduced-motion: reduce){
+    .podio li, .barra > span{ transition:none; }
+}
+    
+.enlace-resultados{
+    text-align:center;
+    margin-top:32px;
+}
+.enlace-resultados .pin{
+    display:inline-block;
+    padding:12px 22px;
+    font-weight:600;
+}

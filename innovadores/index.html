@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación en vivo - Club STEAM VCP</title>
+
+    <meta name="description" content="Seguí en vivo cuántas personas votaron en el evento.">
+    <link rel="icon" type="image/jpeg" href="../assets/base/logo.jpeg">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="stylesheet" href="votacion.css">
+</head>
+<body>
+    <a class="volver" href="../">← Volver al club</a>
+
+    <header class="site-header">
+        <div class="header-row">
+            <img src="../assets/base/logo.jpeg" alt="logo club" class="logo">
+            <div class="header-text">
+                <h1 id="titulo">Votación en vivo</h1>
+                <p class="subtitle">Mirá cuántas personas ya votaron y qué instituciones participan más.</p>
+                <div class="estado" id="estado" role="status"><span class="punto"></span><span id="estadoTexto">Cargando…</span></div>
+            </div>
+        </div>
+        <div class="trace-line" aria-hidden="true">
+            <span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span><span class="via"></span>
+        </div>
+    </header>
+
+    <main>
+        <p class="whatsapp-note aviso-demo" id="avisoDemo" hidden>
+            Modo demostración con datos de ejemplo. Pegá tus enlaces en la sección CONFIGURACIÓN de comun.js para ver los votos reales.
+        </p>
+
+        <section class="principal" aria-label="Participación">
+            <div class="panel">
+                <h2>Participación</h2>
+                <p class="contador-numero" id="total" aria-live="polite">0</p>
+                <p class="contador-etiqueta" id="totalEtiqueta">personas ya votaron</p>
+            </div>
+            <div class="panel">
+                <h2>Instituciones con más votantes</h2>
+                <ol class="top-instituciones" id="topInstituciones"></ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Club Steam VCP</h3>
+        <a href="https://kiki2010.github.io/">Chiara Catalini</a>
+    </footer>
+
+<script src="comun.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
